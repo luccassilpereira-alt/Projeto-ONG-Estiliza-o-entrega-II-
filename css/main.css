@@ -1,0 +1,6 @@
+/* Importa todos os módulos de CSS em ordem */
+@import url('0-variables.css');
+@import url('1-base.css');
+@import url('2-layout.css');
+@import url('3-components.css');
+@import url('4-responsive.css');
