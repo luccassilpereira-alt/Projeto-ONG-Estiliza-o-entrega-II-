@@ -1,0 +1,52 @@
+/* --- 2. Estilos de Base e Tipografia --- */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--fs-base);
+    color: var(--color-neutral-dark);
+    background-color: var(--color-neutral-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    /* Layout Principal com CSS Grid */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: var(--space-sm);
+}
+
+h1 { font-size: var(--fs-xxl); }
+h2 { font-size: var(--fs-xl); }
+h3 { font-size: var(--fs-lg); }
+h4 { font-size: var(--fs-md); }
+
+p {
+    margin-bottom: var(--space-sm);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
