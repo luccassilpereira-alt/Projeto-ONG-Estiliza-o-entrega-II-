@@ -1,0 +1,115 @@
+/* --- 7. Breakpoints Responsivos (5+) --- */
+
+/* Breakpoint 1: sm (576px) */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+    .modal {
+        width: 80%;
+    }
+}
+
+/* Breakpoint 2: md (768px) - Tablet */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+
+    /* Grid Responsivo (md) */
+    .col-md-4 { grid-column: span 4; }
+    .col-md-6 { grid-column: span 6; }
+    .col-md-8 { grid-column: span 8; }
+    .col-md-12 { grid-column: span 12; }
+
+    /* Leiaute de Cards */
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Navegação Desktop */
+    .hamburger {
+        display: none; /* Esconde o hambúrguer */
+    }
+    .nav-menu {
+        display: flex; /* Mostra o menu */
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background-color: transparent;
+        box-shadow: none;
+        gap: var(--space-sm);
+    }
+    .nav-item {
+        border-bottom: none;
+    }
+    .nav-link {
+        padding: 0.5rem 1rem;
+    }
+    .nav-link:hover {
+        background-color: transparent;
+        color: var(--color-primary);
+    }
+
+    /* Dropdown (Desktop) */
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--color-white);
+        box-shadow: var(--shadow-md);
+        min-width: 200px;
+        padding: var(--space-xs) 0;
+        border-radius: var(--border-radius);
+        z-index: 11;
+    }
+    .dropdown:hover > .dropdown-menu {
+        display: block; /* Mostra no hover */
+    }
+    .dropdown.open > .dropdown-menu {
+        display: none; /* Ignora JS no desktop */
+    }
+    .dropdown .nav-link {
+        padding: var(--space-xs) var(--space-sm);
+    }
+    .dropdown-toggle::after {
+        display: none; /* Remove seta em JS */
+    }
+}
+
+/* Breakpoint 3: lg (992px) - Desktop */
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    /* Grid Responsivo (lg) */
+    .col-lg-3 { grid-column: span 3; }
+    .col-lg-4 { grid-column: span 4; }
+    .col-lg-6 { grid-column: span 6; }
+    .col-lg-8 { grid-column: span 8; }
+    .col-lg-12 { grid-column: span 12; }
+
+    /* Leiaute de Cards */
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Breakpoint 4: xl (1200px) - Large Desktop */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    /* Grid Responsivo (xl) */
+    .col-xl-3 { grid-column: span 3; }
+    .col-xl-4 { grid-column: span 4; }
+    .col-xl-6 { grid-column: span 6; }
+}
+    
+/* Breakpoint 5: xxl (1400px) - Extra Large */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
