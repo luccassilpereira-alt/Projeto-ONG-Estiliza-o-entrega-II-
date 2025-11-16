@@ -1,0 +1,210 @@
+/* --- 5. Componentes de Interface --- */
+
+/* 5.1 Botões (com estados) */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem; /* 12px 24px */
+    font-size: var(--fs-base);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition-base);
+    text-align: center;
+}
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+/* Estados */
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+.btn-primary:focus {
+    outline: 3px solid var(--color-primary-dark);
+    outline-offset: 2px;
+}
+.btn-primary:active {
+    transform: translateY(0);
+}
+.btn:disabled {
+    background-color: var(--color-neutral-medium);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+.btn-secondary:hover {
+    background-color: #1e8437;
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+/* 5.2 Badges e Tags */
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: var(--color-secondary-light);
+    color: var(--color-secondary);
+}
+.tag-accent {
+    background-color: #fff8e1;
+    color: #f59e0b;
+}
+
+/* 5.3 Cards Responsivos */
+.card-grid {
+    display: grid;
+    gap: var(--space-md);
+    /* Grid de cards, 1 coluna no mobile */
+    grid-template-columns: 1fr;
+}
+
+.project-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: var(--transition-base);
+    display: flex;
+    flex-direction: column;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card-content {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz o conteúdo crescer */
+}
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+}
+.card-title {
+    font-size: var(--fs-md);
+    margin-bottom: var(--space-xs);
+}
+.card-text {
+    color: var(--color-neutral-medium);
+    flex-grow: 1; /* Empurra o botão para baixo */
+    margin-bottom: var(--space-md);
+}
+
+/* 5.4 Formulários Estilizados */
+.form-group {
+    margin-bottom: var(--space-md);
+}
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+}
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: var(--fs-base);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    transition: var(--transition-base);
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+/* Validação Visual */
+.form-control:invalid {
+    border-color: var(--color-danger);
+}
+.form-control:valid {
+    border-color: var(--color-success);
+}
+
+/* 5.5 Componentes de Feedback (Alerts, Modal) */
+
+/* Alerts */
+.alert {
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+}
+.alert-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border-color: #badbcc;
+}
+.alert-danger {
+    background-color: #f8d7da;
+    color: #842029;
+    border-color: #f5c2c7;
+}
+
+/* Modal (Toast pode ser similar) */
+.modal-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+.modal-overlay.active {
+    display: block; /* Exibido via JS */
+}
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    z-index: 101;
+    width: 90%;
+    max-width: 500px;
+}
+.modal.active {
+    display: block; /* Exibido via JS */
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--color-neutral-medium);
+}
