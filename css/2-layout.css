@@ -1,0 +1,174 @@
+/* --- 3. Leiaute (Grid e Flexbox) --- */
+
+/* Contêiner Principal */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+}
+
+/* Sistema de Grid Customizado (12 Colunas) */
+.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-md);
+}
+
+/* Colunas (Mobile-first: 12 colunas por padrão) */
+[class^="col-"] {
+    grid-column: span 12;
+}
+
+/* Utilitários Flexbox */
+.d-flex {
+    display: flex;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.align-center {
+    align-items: center;
+}
+
+/* Leiaute das Seções */
+main {
+    grid-area: main;
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+}
+
+section {
+    margin-bottom: var(--space-xxl);
+}
+
+/* --- 4. Navegação Sofisticada --- */
+.main-header {
+    grid-area: header;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-sm) 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-logo a {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    color: var(--color-neutral-dark);
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: none; /* Escondido no mobile */
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--color-white);
+    position: absolute;
+    top: 60px; /* Altura do header */
+    left: 0;
+    box-shadow: var(--shadow-md);
+}
+
+.nav-menu.active {
+    display: flex; /* Exibido via JS */
+}
+
+.nav-item {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.nav-link {
+    display: block;
+    padding: var(--space-sm);
+    color: var(--color-neutral-dark);
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav-link:hover {
+    background-color: var(--color-neutral-light);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* Menu Hambúrguer (Mobile) */
+.hamburger {
+    display: flex; /* Exibido no mobile */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.hamburger .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-neutral-dark);
+    border-radius: 3px;
+    transition: var(--transition-base);
+}
+
+/* Animação Hamburger */
+.nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Submenu Dropdown */
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none;
+    list-style: none;
+    background-color: var(--color-neutral-light);
+}
+.dropdown .nav-link {
+    padding-left: var(--space-md);
+}
+/* JS vai controlar a classe 'open' */
+.dropdown.open > .dropdown-menu {
+    display: block;
+}
+.dropdown-toggle::after {
+    content: ' ▼';
+    font-size: 0.7em;
+    display: inline-block;
+    margin-left: 5px;
+}
+.dropdown.open > .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+/* --- 6. Footer --- */
+.main-footer {
+    grid-area: footer;
+    background-color: var(--color-neutral-dark);
+    color: var(--color-neutral-light);
+    padding: var(--space-lg) 0;
+    text-align: center;
+    margin-top: var(--space-xl);
+}
+.main-footer p {
+    margin: 0;
+}
